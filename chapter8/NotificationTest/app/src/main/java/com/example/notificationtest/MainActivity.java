@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.send_notice:
-                Intent intent = new Intent(this, NotificationActivity.class);
-                PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
+//                Intent intent = new Intent(this, NotificationActivity.class);
+//                PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
                 NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                 Notification notification = new NotificationCompat.Builder(this)
                         .setContentTitle("This is content title")
@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                         .setWhen(System.currentTimeMillis())
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
-                        .setContentIntent(pi)
+//                        .setContentIntent(pi)
                 //        .setSound(Uri.fromFile(new File("/system/media/audio/ringtones/Luna.ogg")))
                 //        .setVibrate(new long[]{0, 1000, 1000, 1000})
                 //        .setLights(Color.GREEN, 1000, 1000)
-                        .setDefaults(NotificationCompat.DEFAULT_ALL)
+//                        .setDefaults(NotificationCompat.DEFAULT_ALL)
                 //        .setStyle(new NotificationCompat.BigTextStyle().bigText("Learn how to build notifications, send and sync data, and use voice actions. Get the official Android IDE and developer tools to build apps for Android."))
-                        .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.big_image)))
-                        .setPriority(NotificationCompat.PRIORITY_MAX)
+//                        .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.big_image)))
+//                        .setPriority(NotificationCompat.PRIORITY_MAX)
                         .build();
                 manager.notify(1, notification);
                 break;

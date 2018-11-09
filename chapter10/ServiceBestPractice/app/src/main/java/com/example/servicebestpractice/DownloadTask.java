@@ -2,6 +2,7 @@ package com.example.servicebestpractice;
 
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -59,7 +60,9 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
                     .addHeader("RANGE", "bytes=" + downloadedLength + "-")
                     .url(downloadUrl)
                     .build();
+            Log.d("DownloadTask", "before client.newCall.execute");
             Response response = client.newCall(request).execute();
+            Log.d("DownloadTask", "after client.newCall.execute");
             if (response != null) {
                 is = response.body().byteStream();
                 savedFile = new RandomAccessFile(file, "rw");

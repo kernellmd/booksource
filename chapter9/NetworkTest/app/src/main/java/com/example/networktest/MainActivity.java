@@ -100,12 +100,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void run() {
                 try {
                     OkHttpClient client = new OkHttpClient();
+                    Log.d("MainActivity", "before request");
                     Request request = new Request.Builder()
                             // 指定访问的服务器地址是电脑本机
-                            .url("http://10.0.2.2/get_data.json")
+                            .url("http://10.210.1.40:8080/examples/get_data.json")
                             .build();
                     Response response = client.newCall(request).execute();
                     String responseData = response.body().string();
+                    Log.d("MainActivity", responseData);
                     parseJSONWithGSON(responseData);
 //                    parseJSONWithJSONObject(responseData);
 //                    parseXMLWithSAX(responseData);
